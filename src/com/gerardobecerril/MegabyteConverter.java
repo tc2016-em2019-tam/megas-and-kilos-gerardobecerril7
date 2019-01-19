@@ -5,10 +5,12 @@ public class MegabyteConverter {
     private int kilobytes = 0;
 
     public MegabyteConverter(int kilobytes) throws Exception {
+        
         if (kilobytes < 0) {
-            throw new Exception("Kilobytes have to be positive.");
+            throw new Exception("Kilobytes can't be negative.");
         }
         this.kilobytes = kilobytes;
+        
     }
 
     public int getKilobytes() {
@@ -16,23 +18,23 @@ public class MegabyteConverter {
     }
 
     public void setKilobytes(int kilobytes) throws Exception {
+        
         if (kilobytes < 0) {
-            throw new Exception("Kilobytes have to be positive.");
+            throw new Exception("Kilobytes can't be negative.");
         }
         this.kilobytes = kilobytes;
+        
     }
 
     public static void printMegaBytesAndKiloBytes(int kilobytes) throws Exception {
-        if (kilobytes <= 0) {
-            throw new Exception("Kilobytes have to be greater than 0.");
-        }
-
-        int remKilobytes = kilobytes % 1024;
+        
+        int kb = kilobytes / 1024;
+        int remainder = kilobytes % 1024;
 
         if (remKilobytes > 0) {
-            System.out.println(kilobytes + " KB = " + kilobytes / 1024 + " MB and " + remKilobytes + " KB");
-        } else{
-            System.out.println(kilobytes + " KB = " + kilobytes / 1024 + " MB");
+            System.out.println(kilobytes + " KB = " + kb + " MB and " + remainder + " KB");
+        } else {
+            System.out.println(kilobytes + " KB = " + kb + " MB");
         }
     }
 
